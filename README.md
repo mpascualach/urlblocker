@@ -1,0 +1,1 @@
+Full suggested manifest size: https://developer.chrome.com/docs/extensions/mv3/manifest/

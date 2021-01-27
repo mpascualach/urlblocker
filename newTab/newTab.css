@@ -1,0 +1,6 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(“https://thailand-exp-images.s3-us-west-2.amazonaws.com/komloy.jpg”);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
