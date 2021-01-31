@@ -1,14 +1,19 @@
-chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set({ color: '#e07408'}, function() {
-        console.log("The color is yellow");
-    });
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-        chrome.declarativeContent.onPageChanged.addRules([{
-            conditions: [new chrome.declarativeContent.PageStateMatcher({
-                pageUrl: {hostEquals: 'developer.chrome.com'},
-            })
-            ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-        }]);
-    })
+const forbiddenLinks = [
+    'https://www.youtube.com/',
+    'https://www.reddit.com/'
+]
+
+const redirectedTab = {
+    active: true,
+    url: 'https://www.randomdoggiegenerator.com/'
+}
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (forbiddenLinks.indexOf(tab.url) !== -1) {
+        chrome.tabs.remove(tabId);
+        // chrome.tabs.create(redirectedTab, () => {
+        //     console.log("Success");
+        //     return;
+        // })
+    }
 })

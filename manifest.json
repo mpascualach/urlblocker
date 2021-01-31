@@ -2,9 +2,12 @@
     "name": "Block URLs",
     "version": "1.0",
     "description": "Block very specific URLs",
-    "chrome_url_overrides": {
-        "newtab": "newtab/newtab.html"
+    "background": {
+        "service_worker": "background.js"
     },
     "manifest_version": 3,
-    "permissions": ["activeTab", "declarativeContent", "storage", "tabs"]
+    "permissions": [
+        "storage",
+        "tabs"
+    ]
 }
